@@ -38,7 +38,10 @@ var create = function () {
     Nakama.game.physics.startSystem(Phaser.Physics.ARCADE);
     Nakama.keyboard = Nakama.game.input.keyboard;
     Nakama.background = Nakama.game.add.sprite(0, -960, 'background')
-    Nakama.players.push(new ShipController(200, 200, 'Spaceship1-Player.png',
+    Nakama.bulletGroup = Nakama.game.add.physicsGroup();
+    Nakama.playerGroup = Nakama.game.add.physicsGroup();
+    Nakama.enemyGroup = Nakama.game.add.physicsGroup();
+    Nakama.players.push(new ShipType1Controller(200, 200, '-Player',
         {
             UP: Phaser.Keyboard.UP,
             DOWN: Phaser.Keyboard.DOWN,
@@ -47,7 +50,7 @@ var create = function () {
             FIRE:Phaser.Keyboard.SPACEBAR
         })
     );
-    Nakama.players.push(new ShipController(100, 100, 'Spaceship1-Partner.png',
+    Nakama.players.push(new ShipType1Controller(100, 100, '-Partner',
         {
             UP: Phaser.Keyboard.W,
             DOWN: Phaser.Keyboard.S,
@@ -56,14 +59,34 @@ var create = function () {
             FIRE:Phaser.Keyboard.F
         }
     ));
+    Nakama.enemies = [];
+    Nakama.enemies.push(
+        new EnemyController(
+            320,
+            200,
+            'EnemyType1.png',
+            {health:5}
+        )
+    )
+
 }
 
 // update game state each frame
 var update = function () {
     Nakama.background.position.y += 5;
     if (Nakama.background.position.y >= 0) {
-        Nakama.background.position.y = -960
+        Nakama.background.position.y += -960
     }
+    Nakama.game.physics.arcade.overlap(
+        Nakama.bulletGroup,
+        Nakama.enemyGroup,
+        onBulletHitEnemy
+    );
+
+}
+var onBulletHitEnemy= function (bulletSprite, enemySprite) {
+    bulletSprite.kill();
+    enemySprite.damage(1);
 
 }
 

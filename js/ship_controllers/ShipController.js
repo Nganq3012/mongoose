@@ -1,12 +1,12 @@
 class ShipController {
     constructor(x, y, spriteName, config) {
-        this.sprite = Nakama.game.add.sprite(x, y, 'assets', spriteName);
-        Nakama.game.physics.arcade.enable(this.sprite);
+        this.sprite = Nakama.playerGroup.create(x, y, 'assets', spriteName);
         this.config = config;
-        this.config.SHIP_SPEED = 300;
+        this.sprite.anchor = new Phaser.Point(0.5, 0.5);
+
         this.sprite.body.collideWorldBounds = true;
         this.sprite.update = this.update.bind(this);
-        this.bullets = []
+        this.fire_key = Nakama.keyboard.addKey(this.config.FIRE);
     }
 
     update() {
@@ -24,10 +24,13 @@ class ShipController {
         } else {
             this.sprite.body.velocity.y = 0;
         }
-        var fire_key = Nakama.keyboard.addKey(this.config.FIRE);
-        fire_key.onDown.add(function () {
-            this.bullets.push(
-                new BulletController(this.sprite.position.x + (this.sprite.width / 2)-20, this.sprite.position.y - (this.sprite.height / 2), 'BulletType1.png'))
-        }, this);//20 la nửa height của viên đạn
+        if (Nakama.game.time.time > this.nextShotTime){
+
+        }
+        this.fire_key.onDown.add(this.fire, this);
+    }
+
+    fire(){
+
     }
 }
