@@ -1,57 +1,55 @@
-function aRose() {
-    console.log('hihihi')
-}
-
-var anotherName = aRose;
-var a = typeof(anotherName);
-
-console.log(a)
-anotherName();
-setTimeout(aRose, 2000);
-
-function multi123(num) {
-    return 5 * 123;
-}
-
-function multi136(num) {
-    return 5 * 123;
-}
-function changeNumber(num, trans) {
-    return trans(num);
-}
-a=changeNumber(3,multi123);
-console.log('dm',a)
+let gameboard = [[0, 1, 9, 1],
+    [0, 1, 1, 1],
+    [0, 0, 0, 0]]
 
 
-function countDown(time) {
-    for(var i=0;i<=time;i++) {
-        print(i,time);
+function minesweeper1(gameboard) {
+    var arr = []
+    for (var value of gameboard) {
+        var arrTemp = []
+        for (var i in value) {
+            if (value[i] !== 9) {
+                arrTemp.push(0);
+            } else {
+                arrTemp.push(9)
+            }
+        }
+        arr.push(arrTemp)
     }
-}
-function print(i,time) {
-    setTimeout(function () {
-        console.log(i);
-    },(time-i)*1000)
-}
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] === 9) {
+                if (j + 1 < arr[i].length)
+                    arr[i][j + 1] += 1;
+                if (j - 1 >= 0)
+                    arr[i][j - 1] += 1;
+                if (i - 1 >= 0)
+                    arr[i - 1][j] += 1;
+                if (i + 1 < arr.length)
+                    arr[i + 1][j] += 1;
 
-countDown(5);
-function createWebsiteCounter() {
-    var numberOfVisitor = 0;
-
-    function getNumberOfVisiter() {
-        return numberOfVisitor;
-    }
-
-    function setNumberOfVisitor(num) {
-        numberOfVisitor = num;
-        return {
-            getNumberOfVisiter: getNumberOfVisiter,
-            setNumberOfVisitor: setNumberOfVisitor
+                if (i - 1 >= 0 && j - 1 >= 0) {
+                    arr[i - 1][j - 1] += 1
+                }
+                if (i + 1 < arr.length && j + 1 < arr[i].length) {
+                    arr[i + 1][j + 1] += 1;
+                }
+                if (i - 1 >= 0 && j + 1 < arr[i].length) {
+                    arr[i - 1][j + 1] += 1;
+                }
+                if (i + 1 < arr.length && j - 1 >= 0) {
+                    arr[i + 1][j - 1] += 1;
+                }
+            }
         }
     }
+
+    return arraysEqual(arr, gameboard);
 }
-var myWebsite=createWebsiteCounter();
-myWebsite.setNumberOfVisitor(myWebsite.getNumberOfVisiter()+1)
-console.log(myWebsite.getNumberOfVisiter())
 
+function arraysEqual(a1, a2) {
+    /* WARNING: arrays must not contain {objects} or behavior may be undefined */
+    return JSON.stringify(a1) == JSON.stringify(a2);
+}
 
+console.log(minesweeper1(gameboard))

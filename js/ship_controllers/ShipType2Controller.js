@@ -6,10 +6,12 @@ class ShipType2Controller extends ShipController {
             `Spaceship1${spriteSuffix}.png`,
             config
         );
-        this.config.SHIP_SPEED = 300;
+        this.config.SHIP_SPEED = 200;
     }
 
     fire() {
-        new BulletType2Controller(this.sprite.x, this.sprite.y,{})
+        new BulletType2Controller(this.sprite.x, this.sprite.y,{type:'left'});
+        new BulletType2Controller(this.sprite.x, this.sprite.y,{type:'right'});
+
     }
 }

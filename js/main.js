@@ -25,6 +25,8 @@ var preload = function () {
     Nakama.game.scale.maxHeight = Nakama.configs.GAME_HEIGHT;
     Nakama.game.scale.pageAlignHorizontally = true;
     Nakama.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    Nakama.game.load.audio('player1Shot', 'Assets/sounds/shootPlayer.wav');
+    Nakama.game.load.audio('player2Shot', 'Assets/sounds/shootPlayer2.wav');
 
     Nakama.game.time.advancedTiming = true;
 
@@ -41,7 +43,10 @@ var create = function () {
     Nakama.bulletGroup = Nakama.game.add.physicsGroup();
     Nakama.playerGroup = Nakama.game.add.physicsGroup();
     Nakama.enemyGroup = Nakama.game.add.physicsGroup();
-    Nakama.players.push(new ShipType1Controller(200, 200, '-Player',
+    Nakama.player1Shoot=Nakama.game.add.audio('player1Shot');
+    Nakama.player2Shoot=Nakama.game.add.audio('player2Shot');
+
+    Nakama.players.push(new ShipType1Controller(0, 930, '-Player',
         {
             UP: Phaser.Keyboard.UP,
             DOWN: Phaser.Keyboard.DOWN,
@@ -50,7 +55,7 @@ var create = function () {
             FIRE:Phaser.Keyboard.SPACEBAR
         })
     );
-    Nakama.players.push(new ShipType1Controller(100, 100, '-Partner',
+    Nakama.players.push(new ShipType2Controller(600, 930, '-Partner',
         {
             UP: Phaser.Keyboard.W,
             DOWN: Phaser.Keyboard.S,
@@ -59,16 +64,23 @@ var create = function () {
             FIRE:Phaser.Keyboard.F
         }
     ));
+    Nakama.players.push(new ShipType3Controller(600, 930, '-Partner',
+        {
+            UP: Phaser.Keyboard.EIGHT,
+            DOWN: Phaser.Keyboard.TWO,
+            LEFT: Phaser.Keyboard.FOUR,
+            RIGHT: Phaser.Keyboard.SIX,
+            FIRE:Phaser.Keyboard.FIVE
+        }
+    ));
     Nakama.enemies = [];
-    Nakama.enemies.push(
-        new EnemyController(
-            320,
-            200,
-            'EnemyType1.png',
-            {health:5}
-        )
-    )
+    setInterval(addEnemy,3000);
 
+
+}
+var addEnemy=function(){
+    Nakama.enemies.push(new EnemyController(320,200,'EnemyType1.png',{health:5}))
+    console.log('maddasdad')
 }
 
 // update game state each frame
@@ -82,6 +94,8 @@ var update = function () {
         Nakama.enemyGroup,
         onBulletHitEnemy
     );
+
+
 
 }
 var onBulletHitEnemy= function (bulletSprite, enemySprite) {
