@@ -5,7 +5,7 @@ class BulletType3Controller extends BulletController {
         this.sprite.outOfBoundsKill = false;
         this.configs.startingY = y;
         this.configs.startingX = x;
-        this.sprite.body.velocity.y = -1500;
+        this.sprite.body.velocity.y = -1200;
         this.sprite.update = this.update.bind(this);
     }
     update(){
