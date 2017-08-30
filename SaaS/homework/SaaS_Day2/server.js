@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(__dirname));
 app.get('/style.css', (req, res) => {
-    res.sendFile(__dirname + 'menu.css');
+    res.sendFile(__dirname + '/menu.css');
 });
 app.get('/readfile', (req, res) => {
 
@@ -16,6 +16,8 @@ app.get('/readfile', (req, res) => {
     <head> <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
    </head>
    <body>
     <nav class="menu">
