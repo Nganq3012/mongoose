@@ -14,7 +14,9 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/TechKidsDev/edu-web-ci-nakama#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
     "gulp-load-plugins": "^1.4.0",
