@@ -1,7 +1,7 @@
 const express = require('express')
 const Router = express.Router();
 const fs = require('fs');
-const filename = "question.txt"
+const filename = "question.txt";
 
 
 Router.get('/addQuestion', (req, res) => {
