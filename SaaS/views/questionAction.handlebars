@@ -1,5 +1,7 @@
 <h3>{{question}}</h3>
 <h4>Có: {{Yes}}</h4>
 <h4>Không: {{No}}</h4>
-<button type="button">Có</button>
-<button type="button">Không</button>
+<form action="/api/question/{{id}}" method="post">
+<button name="yes" value=1>Có</button>
+<button name="no" value=1>Không</button>
+</form>

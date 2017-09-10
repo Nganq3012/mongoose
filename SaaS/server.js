@@ -13,7 +13,6 @@ app.get('/question', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    fs.writeFileSync('dm.txt','asdsad');
     let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'}));
     let id=parseInt(getRandomArbitrary(0,obj.data.length-1));
     console.log(id)
@@ -21,12 +20,14 @@ app.get('/', (req, res) => {
     res.render('questionAction', {
         question: question.question,
         Yes: question.yes,
-        No: question.no
+        No: question.no,
+        id:question.id
     });
 })
 app.get('/ask', (req, res) => {
     res.render('ask')
 });
+
 app.get('/styles.css', (req, res) => {
     res.sendFile(__dirname + '/styles.css');
 });
