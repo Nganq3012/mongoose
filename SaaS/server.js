@@ -6,14 +6,14 @@ const viewRouter = require('./router/questionRouter');
 const apiRouter = require('./router/apiRouter')
 let app = express();
 const fs = require('fs');
-const filename = "question.txt"
+const filename = "question.txt";
 app.use(bodyParser.urlencoded({extended:true}))
 app.get('/question', (req, res) => {
     res.render('home')
 });
 
 app.get('/', (req, res) => {
-    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'}));
+    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
     let id=parseInt(getRandomArbitrary(0,obj.data.length-1));
     console.log(id)
     let question=obj.data[id];

@@ -7,7 +7,8 @@ Router.get('/',(req,res)=>{
 })
 Router.post('/question/:id',(req,res)=>{
     const id=req.params.id;
-    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'}));
+    console.log('hihi',fs.readFileSync(filename,{encoding:'utf-8'}))
+    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
     let question=obj.data[id];
     console.log('truoc',question)
     if (req.body.yes==='1'){
@@ -16,7 +17,7 @@ Router.post('/question/:id',(req,res)=>{
         question.no=question.no-1;
     console.log('sau',question)
     obj.data[id]=question;
-    fs.writeFile(filename, JSON.stringify(obj), function (err) {
+    fs.writeFile(filename, JSON.stringify(obj).replace(']}',''), function (err) {
         if (err) throw err;
         console.log('Saved!');
     });
@@ -35,29 +36,24 @@ Router.post('/question',(req,res)=>{
             let obj={};
             let arr=[];
             body['id']=0;
-            arr.push(body)
-            obj['data']=arr;
-            console.log(obj)
-            fs.writeFile(filename, JSON.stringify(obj));
-        }
-        else {
-            let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'}));
-            let arr=obj['data'];
-            id=body['id']=arr.length;
             arr.push(body);
             obj['data']=arr;
-            // fs.appendFile(filename, JSON.stringify(obj), function (err) {
-            //     if (err) throw err;
-            //     console.log('Saved!');
-            // });
-            fs.writeFile(filename, JSON.stringify(obj), function (err) {
+            console.log(obj);
+            fs.writeFile(filename, JSON.stringify(obj).replace(']}',''));
+        }
+        else {
+            let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
+            id=body.id=obj.data.length;
+            fs.appendFile(filename, ","+JSON.stringify(body), function (err) {
                 if (err) throw err;
                 console.log('Saved!');
             });
-            res.redirect(`/question/${id}`)
+
         }
+        console.log(id);
+        res.redirect(`/question/${id}`)
 
     });
 })
 
-module.exports=Router
+module.exports=Router;

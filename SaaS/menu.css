@@ -1,12 +1,11 @@
 .menu{
-    background: #D5B0AC;
-    text-align: center;
+    background: #222222;
+    text-align: start;
     font-weight: bold;
-    color: #402E2A;
+    color: #809c9e;
 }
 
 .menu span:hover{
-    background: #9CD08F;
     cursor: pointer;
     color: #FFFFFF;
 }

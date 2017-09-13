@@ -8,8 +8,9 @@ Router.get('/addQuestion', (req, res) => {
     res.send('Add question');
 });
 Router.get('/:id', (req, res) => {
-    let id=req.params.id
-    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'}));
+    let id=req.params.id;
+    console.log(fs.readFileSync(filename,{encoding:'utf-8'})+']}')
+    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
     let question=obj.data[id];
     res.render('question', {
         question: question.question,
