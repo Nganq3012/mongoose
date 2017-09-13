@@ -9,7 +9,7 @@ Router.get('/addQuestion', (req, res) => {
 });
 Router.get('/:id', (req, res) => {
     let id=req.params.id;
-    console.log(fs.readFileSync(filename,{encoding:'utf-8'})+']}')
+    console.log('aabb',fs.readFileSync(filename,{encoding:'utf-8'})+']}')
     let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
     let question=obj.data[id];
     res.render('question', {
