@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d4c0955-16ec-4aa4-a192-ee86d1b190b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SaaS/styles.css" afterPath="$PROJECT_DIR$/SaaS/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SaaS/views/layouts/main.handlebars" afterPath="$PROJECT_DIR$/SaaS/views/layouts/main.handlebars" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SaaS/views/questionAction.handlebars" afterPath="$PROJECT_DIR$/SaaS/views/questionAction.handlebars" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.handlebars" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SaaS/views/layouts/main.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="70" lean-forward="false" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+            <state relative-caret-position="223">
+              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -63,8 +61,8 @@
       <file leaf-file-name="questionAction.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SaaS/views/questionAction.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="260">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -90,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SaaS/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+            <state relative-caret-position="747">
+              <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -191,8 +189,8 @@
         <option value="$PROJECT_DIR$/SaaS/router/apiRouter.js" />
         <option value="$PROJECT_DIR$/SaaS/menu.css" />
         <option value="$PROJECT_DIR$/SaaS/styles.css" />
-        <option value="$PROJECT_DIR$/SaaS/views/questionAction.handlebars" />
         <option value="$PROJECT_DIR$/SaaS/views/layouts/main.handlebars" />
+        <option value="$PROJECT_DIR$/SaaS/views/questionAction.handlebars" />
       </list>
     </option>
   </component>
@@ -385,7 +383,7 @@
       <workItem from="1505019570366" duration="7767000" />
       <workItem from="1505223245744" duration="1841000" />
       <workItem from="1505269395279" duration="6123000" />
-      <workItem from="1505283114197" duration="2346000" />
+      <workItem from="1505283114197" duration="2500000" />
     </task>
     <task id="LOCAL-00001" summary="hw day2">
       <created>1504068887195</created>
@@ -450,11 +448,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505278978392</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="hw day 4">
+      <created>1505285496579</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1505285496579</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39198000" />
+    <option name="totallyTimeSpent" value="39352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-23" y="76" width="1920" height="977" extended-state="0" />
@@ -499,7 +504,8 @@
     <MESSAGE value="post to api" />
     <MESSAGE value="logic work" />
     <MESSAGE value="2 handlebars" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 handlebars" />
+    <MESSAGE value="hw day 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="hw day 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -694,22 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SaaS/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SaaS/views/questionAction.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SaaS/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -720,8 +710,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SaaS/views/layouts/main.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="70" lean-forward="false" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+        <state relative-caret-position="223">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SaaS/views/questionAction.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SaaS/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
           <folding />
         </state>
       </provider>
