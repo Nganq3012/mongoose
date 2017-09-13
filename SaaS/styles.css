@@ -23,7 +23,6 @@ a{
 
 }
 .button_yes{
-    margin-right: 33%;
     background: #df4140;
     border-radius:4px ;
     padding-top: 16px;
@@ -40,4 +39,27 @@ a{
 h3{
     text-align: center;
     margin-bottom: 32px;
+}
+.div_action{
+    margin-top: 40px;
+
+}
+.div_action button{
+   margin-right: 16px;
+    padding: 8px;
+    background: white;
+    border-color: gray;
+    border-radius: 8px;
+}
+.mobile {display:none;}
+.desktop {display:block;}
+
+@media (max-width : 900px) {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
 }
