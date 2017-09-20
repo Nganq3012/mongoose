@@ -1,52 +1,39 @@
-'use strict'
-const express = require('express')
+const express = require('express');
 const handlebars = require('express-handlebars');
-const bodyParser = require('body-parser')
-const viewRouter = require('./router/questionRouter');
-const apiRouter = require('./router/apiRouter')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const config = require('./config.json');
+
+const questionApiRouter = require('./module/question/questionApiRouter');
+const questionViewRouter = require('./module/question/questionViewRouter');
+
 let app = express();
-const fs = require('fs');
-const filename = "question.txt";
-app.use(bodyParser.urlencoded({extended:true}))
-app.get('/question', (req, res) => {
-    res.render('home')
-});
 
-app.get('/', (req, res) => {
-    let obj=JSON.parse(fs.readFileSync(filename,{encoding:'utf-8'})+']}');
-    let id=parseInt(getRandomArbitrary(0,obj.data.length-1));
-    console.log(id)
-    let question=obj.data[id];
-    res.render('questionAction', {
-        question: question.question,
-        Yes: question.yes,
-        No: question.no,
-        id:question.id
-    });
-})
-app.get('/ask', (req, res) => {
-    res.render('ask')
-});
-
-app.get('/styles.css', (req, res) => {
-    res.sendFile(__dirname + '/styles.css');
-});
-app.get('/responsive.css', (req, res) => {
-    res.sendFile(__dirname + '/responsive.css');
-});
-app.get('/menu.css', (req, res) => {
-    res.sendFile(__dirname + '/menu.css');
-});
-app.get('/about', (req, res) => {
-    res.render('about')
-});
+app.use(bodyParser.urlencoded({extended: true}));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.use('/question', viewRouter);
-app.use('/api', apiRouter);
-app.listen(6969, () => {
-    console.log('server is up')
+
+app.use('/', questionViewRouter);
+app.use('/api/question', questionApiRouter);
+
+
+app.get('/about', (req, res) => {
+    let questionList = [{id: 1, question: 'test'}, {id: 2, question: 'test1'}]
+    res.render('about', {questionList});
 });
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
+
+app.use(express.static(__dirname + '/public'));
+
+//localhost
+mongoose.connect(config.connectionString, (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('connect success');
+    }
+});
+
+app.listen(config.port, () => {
+    console.log('server is up at ', config.port);
+});
