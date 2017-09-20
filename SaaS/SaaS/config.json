@@ -1,0 +1,4 @@
+{
+  "connectionString": "mongodb://localhost/Quiz",
+  "port": 6969
+}

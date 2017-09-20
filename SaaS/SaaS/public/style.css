@@ -3,58 +3,74 @@ p {
     width: 80%;
     margin-left: 16px;
 }
-.input{
+
+.input {
     margin-left: 16px;
     width: 80%;
     height: 100px;
     display: block;
 
 }
-a{
+
+a {
     margin-left: 16px;
 }
+
 .button_submit {
     background: blue;
     color: white;
     padding: 8px;
     display: block;
     margin-left: 16px;
-    border-radius:4px ;
+    border-radius: 4px;
 
 }
-.button_yes{
+
+.button_yes {
     background: #df4140;
-    border-radius:4px ;
+    border-radius: 4px;
     padding-top: 16px;
+    margin-left: 16px;
     padding-bottom: 16px;
     color: white;
 }
-.button_no{
+
+.button_no {
     padding-top: 16px;
     padding-bottom: 16px;
     color: white;
+    margin-right: 16px;
     background: #4565bb;
-    border-radius:4px ;
+    border-radius: 4px;
 }
-h3{
+
+h3 {
     text-align: center;
     margin-bottom: 32px;
 }
-.div_action{
+
+.div_action {
     margin-top: 40px;
 
 }
-.div_action button{
-   margin-right: 16px;
+
+.div_action button {
+    margin-right: 16px;
     padding: 8px;
     background: white;
     border-color: gray;
     border-radius: 8px;
 }
-.mobile {display:none;}
-.desktop {display:block;}
 
-@media (max-width : 900px) {
+.mobile {
+    display: none;
+}
+
+.desktop {
+    display: block;
+}
+
+@media (max-width: 900px) {
     .mobile {
         display: block;
     }

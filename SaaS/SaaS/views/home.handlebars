@@ -1,0 +1,18 @@
+<h3 id="question">{{question.question}}</h3>
+<form action="/api/question/{{question._id}}" method="post">
+    <div class="row">
+        <button class="button_yes" name="yes" value=1><span class="glyphicon glyphicon-thumbs-up"
+                                                            aria-hidden="true"></span>Có / Đúng / Phải
+        </button>
+        <button class="button_no pull-right" name="no" value=1><span class="glyphicon glyphicon-thumbs-down"
+                                                                     aria-hidden="true"></span>Sai / Không / Traí
+        </button>
+    </div>
+</form>
+<center>
+    <div class="row div_action">
+        <button class="col-md-2 col-md-offset-4" name="yes" value=1>Kết quả vote</button>
+        <button class="col-md-2" name="no" value=1>Cau hỏi khac</button>
+    </div>
+</center>
+
